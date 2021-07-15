@@ -124,5 +124,25 @@ bool DrawPoint(vector<Point2f> InputPointList, Mat &DrawImage);
 
 //计算点到直线的距离
 bool Distance_PointToLine(Vec4i Line, Point P, double &Distance);
+
+//计算两条直线的夹角
+bool GetAngleOfTwoLines(Vec4i InputLine_1, Vec4i InputLine_2, double &OutputdAngle, bool InputFlagDegree = 1);
+
+//计算两点中心
+bool GetmiddlePoint(Point Input_P1, Point Input_P2, Point OutputMiddlePoint);
+
+//获取旋转矩阵
+bool GetRotation2DMatrix(Vec4i InputLine, Point InputCenterPoint, double InputDoubleAngle, bool InputBoolDirection);
+
+
+//旋转直线
+bool GetRotatePoints(vector<Point> InputPoints, vector<Point2d> &OutputPoints, Point InputCenterPoint, double InputDoubleAngle, bool InputBoolDirection);
+
+// 旋转直线test
+bool RotateTest();
+
+void rotatePoint(double angle, Point &rotate_pt, Point origin_pt, Point center_pt);
+
+
 }
 

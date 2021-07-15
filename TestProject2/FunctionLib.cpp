@@ -1381,6 +1381,77 @@ bool FunctionLib::Distance_PointToLine(Vec4i Line, Point P, double &Distance)
 	return true;
 }
 
+//将点旋转一定角度
+bool FunctionLib::GetRotatePoints(vector<Point> InputPoints, vector<Point2d> &OutputPoints, Point InputCenterPoint, double InputDoubleAngle, bool InputBoolDirection)
+{
+	/**********************************************************************
+	*	已知点P0(x0,y0)，中心点Pc(xc,yc),角度angle = α。旋转之后的点的坐标P'(x',y')为：
+	*
+	*	x' = (x0 - xc) * cosα - (y0 - yc) * sinα + xc
+	*   y' = (y0 - yc) * cosα - (x0 - xc) * sinα + yc
+	*
+	*/
+
+	if (InputPoints.size() >= 2)
+	{
+		for (int i = 0; i < InputPoints.size(); i++)
+		{
+			Point2d tmp_Point;
+			tmp_Point.x = (InputPoints[i].x - InputCenterPoint.x) * cos(InputDoubleAngle) - (InputPoints[i].y - InputCenterPoint.y) * sin(InputDoubleAngle) + InputCenterPoint.x;
+			tmp_Point.y = (InputPoints[i].y - InputCenterPoint.y) * cos(InputDoubleAngle) + (InputPoints[i].x - InputCenterPoint.x) * sin(InputDoubleAngle) + InputCenterPoint.y;
+			OutputPoints.push_back(tmp_Point);
+		}
+	}
+
+	return true;
+}
+
+
+bool FunctionLib::RotateTest()
+{
+	Mat m_image = Mat(500, 500, CV_8UC3, Scalar(0, 0, 0));
+	vector<Point> origin_line;
+	double angle = -25;
+	for (int i = 0; i <= 500; i += 10)
+	{
+		Point temp_pt;
+		temp_pt.x = i;
+		temp_pt.y = 2 * i + 4;
+		origin_line.push_back(temp_pt);
+
+		circle(m_image, Point(temp_pt.x, temp_pt.y), 3, Scalar(255, 255, 255), -1);//白色点
+	}
+
+	for (int i = 0; i < origin_line.size(); i++)
+	{
+		Point origin_pt, center_pt, rotate_pt;
+		origin_pt.x = origin_line[i].x;
+		origin_pt.y = origin_line[i].y;
+		center_pt.x = origin_line[0].x;
+		center_pt.y = origin_line[0].y;
+
+		rotatePoint(angle, rotate_pt, origin_pt, center_pt);
+
+		circle(m_image, Point(rotate_pt.x, rotate_pt.y), 2, Scalar(0, 0, 255), -1);//红色点
+	}
+
+	imshow("rotate", m_image);
+	waitKey(0);
+	return true;
+}
+
+void FunctionLib::rotatePoint(double angle, Point &rotate_pt, Point origin_pt, Point center_pt)
+{
+	double x0 = center_pt.x;
+	double y0 = center_pt.y;
+
+	double x = origin_pt.x;
+	double y = origin_pt.y;
+
+	rotate_pt.x = (x - x0) * cos(angle* PI / 180) - (y - y0) * sin(angle* PI / 180) + x0;
+	rotate_pt.y = (x - x0) * sin(angle* PI / 180) + (y - y0) * cos(angle* PI / 180) + y0;
+}
+
 
 /*
 void FunctionLib::on_CornerHarris(int thresh, void *,Mat g_srcImage,Mat g_srcImage1)
