@@ -1,0 +1,17 @@
+﻿  FunctionLib.cpp
+FunctionLib.cpp(542): warning C4819: 该文件包含不能在当前代码页(0)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+FunctionLib.cpp(542): warning C4474: printf: 格式字符串中传递的参数太多
+  FunctionLib.cpp(542): note: 占位符和其参数预计 0 可变参数，但提供的却是 1 参数
+FunctionLib.cpp(737): warning C4996: 'cv::estimateRigidTransform': 被声明为已否决
+  D:\opencv4.5.2\opencv\build\include\opencv2/video/tracking.hpp(258): note: 参见“cv::estimateRigidTransform”的声明
+FunctionLib.cpp(780): warning C4305: “=”: 从“double”到“float”截断
+FunctionLib.cpp(785): warning C4305: “=”: 从“double”到“float”截断
+FunctionLib.cpp(790): warning C4305: “=”: 从“double”到“float”截断
+FunctionLib.cpp(1124): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  main.cpp
+  正在生成代码
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(1215): warning C4715: “FunctionLib::fitLine”: 不是所有的控件路径都返回值
+  All 328 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  TestProject2.vcxproj -> E:\1-work\code\vs_Code\TestProject2\x64\Release\TestProject2.exe
+  TestProject2.vcxproj -> E:\1-work\code\vs_Code\TestProject2\x64\Release\TestProject2.pdb (Full PDB)

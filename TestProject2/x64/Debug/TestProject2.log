@@ -1,0 +1,15 @@
+﻿  main.cpp
+  FunctionLib.cpp
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(543): warning C4819: 该文件包含不能在当前代码页(0)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(543): warning C4474: printf: 格式字符串中传递的参数太多
+  e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(543): note: 占位符和其参数预计 0 可变参数，但提供的却是 1 参数
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(738): warning C4996: 'cv::estimateRigidTransform': 被声明为已否决
+  d:\opencv4.5.2\opencv\build\include\opencv2\video\tracking.hpp(258): note: 参见“cv::estimateRigidTransform”的声明
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(781): warning C4305: “=”: 从“double”到“float”截断
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(786): warning C4305: “=”: 从“double”到“float”截断
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(791): warning C4305: “=”: 从“double”到“float”截断
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(1126): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+e:\1-work\code\vs_code\testproject2\testproject2\functionlib.cpp(414): warning C4715: “CFunctionLib::ImageEqualDivided”: 不是所有的控件路径都返回值
+  TestProject2.vcxproj -> E:\1-work\code\vs_Code\TestProject2\x64\Debug\TestProject2.exe
+  TestProject2.vcxproj -> E:\1-work\code\vs_Code\TestProject2\x64\Debug\TestProject2.pdb (Full PDB)
