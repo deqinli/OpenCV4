@@ -28,6 +28,7 @@ int main()
 	//fitCircle(strSimpleBlobDetector);
 	vector<Vec4f> lines;
 	lineDetector(strSimpleBlobDetector, lines);
+	cout << "finish !" << endl;
 
 	return 0;
 }
