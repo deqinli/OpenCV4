@@ -1409,33 +1409,33 @@ bool FunctionLib::GetRotatePoints(vector<Point> InputPoints, vector<Point2d> &Ou
 
 bool FunctionLib::RotateTest()
 {
-	Mat m_image = Mat(500, 500, CV_8UC3, Scalar(0, 0, 0));
-	vector<Point> origin_line;
-	double angle = -25;
-	for (int i = 0; i <= 500; i += 10)
-	{
-		Point temp_pt;
-		temp_pt.x = i;
-		temp_pt.y = 2 * i + 4;
-		origin_line.push_back(temp_pt);
+	vector<Point> vec_Point;
+	Point p1 = Point(100, 100);
+	Point p2 = Point(100, 300);
+	Point p3 = Point(300, 300);
+	Point p4 = Point(300, 100);
 
-		circle(m_image, Point(temp_pt.x, temp_pt.y), 3, Scalar(255, 255, 255), -1);//白色点
-	}
+	vec_Point.push_back(p1);
+	vec_Point.push_back(p2);
+	vec_Point.push_back(p3);
+	vec_Point.push_back(p4);
 
-	for (int i = 0; i < origin_line.size(); i++)
-	{
-		Point origin_pt, center_pt, rotate_pt;
-		origin_pt.x = origin_line[i].x;
-		origin_pt.y = origin_line[i].y;
-		center_pt.x = origin_line[0].x;
-		center_pt.y = origin_line[0].y;
+	Mat img = Mat::zeros(1000, 1000, CV_8UC3);
 
-		rotatePoint(angle, rotate_pt, origin_pt, center_pt);
+	vector<Point2d> outputPoint;
+	GetRotatePoints(vec_Point, outputPoint, Point(500, 500), -PI / 2, 0);
+	line(img, p1, p2, Scalar(0, 0, 255), 3);
+	line(img, p2, p3, Scalar(0, 0, 255), 3);
+	line(img, p3, p4, Scalar(0, 0, 255), 3);
+	line(img, p4, p1, Scalar(0, 0, 255), 3);
+	line(img, outputPoint[0], outputPoint[1], Scalar(255, 255, 255), 3);
+	line(img, outputPoint[1], outputPoint[2], Scalar(255, 255, 255), 3);
+	line(img, outputPoint[2], outputPoint[3], Scalar(255, 255, 255), 3);
+	line(img, outputPoint[3], outputPoint[0], Scalar(255, 255, 255), 3);
 
-		circle(m_image, Point(rotate_pt.x, rotate_pt.y), 2, Scalar(0, 0, 255), -1);//红色点
-	}
+	//cout << outputPoint << endl;
 
-	imshow("rotate", m_image);
+	imshow("hello", img);
 	waitKey(0);
 	return true;
 }

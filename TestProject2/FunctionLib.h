@@ -143,6 +143,7 @@ bool RotateTest();
 
 void rotatePoint(double angle, Point &rotate_pt, Point origin_pt, Point center_pt);
 
+void hello();
 
 }
 
