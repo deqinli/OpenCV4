@@ -28,14 +28,13 @@ int main()
 	//fitCircle(strSimpleBlobDetector);
 	//vector<Vec4f> lines;
 	//lineDetector(strSimpleBlobDetector, lines);
+
 	RotateTest();
 
-	
 
-
-
-
+	cout << "hello" << endl;
 	cout << "finish !" << endl;
+
 
 	return 0;
 }
